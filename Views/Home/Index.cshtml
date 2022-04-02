@@ -1,0 +1,36 @@
+﻿@model IEnumerable<WebApplication1.Models.Product>
+@{
+    ViewData["Title"] = "Продукты";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Учетная книга</title>
+</head>
+<body>
+    <h3 align="center">Продукты</h3>
+    <table border="1" align="center">
+        <tr>
+            <td>ID</td>
+            <td>Имя</td>
+            <td>Цена</td>
+            <td></td>
+        </tr>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.ID</td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>
+                    <a href="~/Home/Edit/@product.ID"
+                   method="post"
+                   action="~Home/Edit/@product.ID"
+                   type="number"
+                   name="id">Редактировать</a>
+                </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
